@@ -1,5 +1,4 @@
-.gradle
-/build/
+# eclipse
 bin
 *.launch
 .settings
