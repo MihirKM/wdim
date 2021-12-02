@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "wdim:space_ore"
+  },
+  "result": "wdim:mysterious_ingot",
+  "experience": 2,
+  "cookingtime": 200
+}

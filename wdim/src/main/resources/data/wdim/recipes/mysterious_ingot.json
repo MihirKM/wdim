@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "wdim:mystery_block"
+    }
+  ],
+  "result": {
+    "item": "wdim:mysterious_ingot",
+    "count": 9
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "wdim:mysterious_ingot"
+    }
+  },
+  "result": {
+    "item": "wdim:mystery_block"
+  }
+}
