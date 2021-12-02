@@ -3,6 +3,7 @@ package com.mihir.wdim.block.custom;
 import com.mihir.wdim.world.dimension.ModDimensions;
 import com.mihir.wdim.world.dimension.SimpleTeleporter;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
@@ -13,7 +14,13 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public class TeleporterBlock {
+public class TeleporterBlock extends Block {
+
+	public TeleporterBlock(Properties properties) {
+		super(properties);
+	}
+
+	@SuppressWarnings("deprecation")
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos,
                                              PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (!worldIn.isRemote()) {
@@ -21,15 +28,15 @@ public class TeleporterBlock {
                 MinecraftServer server = worldIn.getServer();
 
                 if (server != null) {
-                    if (worldIn.getDimensionKey() == ModDimensions.KJDim) {
+                    if (worldIn.getDimensionKey() == ModDimensions.WDim) {
                         ServerWorld overWorld = server.getWorld(World.OVERWORLD);
                         if (overWorld != null) {
                             player.changeDimension(overWorld, new SimpleTeleporter(pos, false));
                         }
                     } else {
-                        ServerWorld kjDim = server.getWorld(ModDimensions.WDim);
-                        if (kjDim != null) {
-                            player.changeDimension(kjDim, new SimpleTeleporter(pos, true));
+                        ServerWorld wDim = server.getWorld(ModDimensions.WDim);
+                        if (wDim != null) {
+                            player.changeDimension(wDim, new SimpleTeleporter(pos, true));
                         }
                     }
                     return ActionResultType.SUCCESS;
