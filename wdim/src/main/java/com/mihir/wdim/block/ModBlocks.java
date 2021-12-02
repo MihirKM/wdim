@@ -36,11 +36,11 @@ public class ModBlocks {
 					.hardnessAndResistance(5f)
 					.sound(SoundType.STONE)));
 	public static final RegistryObject<Block> TELEPORTER = registerBlock("teleporter",
-			() -> new TeleporterBlock(AbstractBlock.Properties.create(Material.ROCK)
+			() -> new TeleporterBlock(AbstractBlock.Properties.create(Material.IRON)
 					.harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE)
 					.hardnessAndResistance(6f)
-					.sound(SoundType.STONE)));
+					.sound(SoundType.METAL)));
 	
 	private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block)
 	{
