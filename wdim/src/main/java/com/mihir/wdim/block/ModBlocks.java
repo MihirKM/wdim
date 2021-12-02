@@ -29,6 +29,13 @@ public class ModBlocks {
 					.hardnessAndResistance(5f)
 					.sound(SoundType.METAL)));
 	
+	public static final RegistryObject<Block> SPACE_ORE = registerBlock("space_ore",
+			() -> new Block(AbstractBlock.Properties.create(Material.ROCK)
+					.harvestLevel(2)
+					.harvestTool(ToolType.PICKAXE)
+					.hardnessAndResistance(5f)
+					.sound(SoundType.STONE)));
+	
 	private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block)
 	{
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);
