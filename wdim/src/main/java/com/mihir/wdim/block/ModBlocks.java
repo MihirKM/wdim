@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import com.mihir.wdim.ModItemsGroup;
 import com.mihir.wdim.WdimMod;
+import com.mihir.wdim.block.custom.TeleporterBlock;
 import com.mihir.wdim.item.ModItems;
 
 import net.minecraft.block.AbstractBlock;
@@ -35,7 +36,7 @@ public class ModBlocks {
 					.hardnessAndResistance(5f)
 					.sound(SoundType.STONE)));
 	public static final RegistryObject<Block> TELEPORTER = registerBlock("teleporter",
-			() -> new Block(AbstractBlock.Properties.create(Material.ROCK)
+			() -> new TeleporterBlock(AbstractBlock.Properties.create(Material.ROCK)
 					.harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE)
 					.hardnessAndResistance(6f)

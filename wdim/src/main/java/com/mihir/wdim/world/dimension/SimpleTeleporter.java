@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.util.ITeleporter;
 
+
 public class SimpleTeleporter implements ITeleporter {
 	public static BlockPos thisPos = BlockPos.ZERO;
     public static boolean insideDimension = true;

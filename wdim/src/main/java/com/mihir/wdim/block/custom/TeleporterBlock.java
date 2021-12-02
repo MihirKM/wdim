@@ -15,12 +15,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 public class TeleporterBlock extends Block {
-
 	public TeleporterBlock(Properties properties) {
 		super(properties);
 	}
 
 	@SuppressWarnings("deprecation")
+	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos,
                                              PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (!worldIn.isRemote()) {
@@ -46,4 +46,6 @@ public class TeleporterBlock extends Block {
 
         return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
     }
+
+
 }
