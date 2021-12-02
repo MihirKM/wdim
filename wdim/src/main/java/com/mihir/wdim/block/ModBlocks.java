@@ -28,13 +28,15 @@ public class ModBlocks {
 					.harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE)
 					.hardnessAndResistance(5f)
-					.sound(SoundType.METAL)));
+					.sound(SoundType.METAL)
+					.setRequiresTool()));
 	public static final RegistryObject<Block> SPACE_ORE = registerBlock("space_ore",
 			() -> new Block(AbstractBlock.Properties.create(Material.ROCK)
 					.harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE)
 					.hardnessAndResistance(5f)
-					.sound(SoundType.STONE)));
+					.sound(SoundType.STONE)
+					.setRequiresTool()));
 	public static final RegistryObject<Block> TELEPORTER = registerBlock("teleporter",
 			() -> new TeleporterBlock(AbstractBlock.Properties.create(Material.IRON)
 					.harvestLevel(1)
