@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "$#$",
+    "#$#",
+    "$#$"
+  ],
+  "key": {
+    "#": {
+		"item": "wdim:mysterious_ingot"
+    },
+    "$": { 
+		"item": "wdim:mystery_block"
+    }
+  },
+  "result": {
+    "item": "wdim:teleporter"
+  }
+}

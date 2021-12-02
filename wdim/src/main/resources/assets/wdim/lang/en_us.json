@@ -3,5 +3,6 @@
 	"item.wdim.mysterious_ingot": "Mysterious Ingot",
 	"itemGroup.wdimTab": "WalleBot Dimensions",
 	"block.wdim.mystery_block": "Block of Mysterious Substance",
-	"block.wdim.space_ore": "Space Ore"
+	"block.wdim.space_ore": "Space Ore",
+	"block.wdim.teleporter":	"Player Transmitter"
 }
