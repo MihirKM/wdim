@@ -24,16 +24,21 @@ public class ModBlocks {
 	
 	public static final RegistryObject<Block> MYSTERY_BLOCK = registerBlock("mystery_block",
 			() -> new Block(AbstractBlock.Properties.create(Material.IRON)
-					.harvestLevel(2)
+					.harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE)
 					.hardnessAndResistance(5f)
 					.sound(SoundType.METAL)));
-	
 	public static final RegistryObject<Block> SPACE_ORE = registerBlock("space_ore",
 			() -> new Block(AbstractBlock.Properties.create(Material.ROCK)
-					.harvestLevel(2)
+					.harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE)
 					.hardnessAndResistance(5f)
+					.sound(SoundType.STONE)));
+	public static final RegistryObject<Block> TELEPORTER = registerBlock("teleporter",
+			() -> new Block(AbstractBlock.Properties.create(Material.ROCK)
+					.harvestLevel(1)
+					.harvestTool(ToolType.PICKAXE)
+					.hardnessAndResistance(6f)
 					.sound(SoundType.STONE)));
 	
 	private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block)
