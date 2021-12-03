@@ -36,7 +36,7 @@ public class ModBiomes {
 	    		  new MobSpawnInfo.Spawners(EntityType.EVOKER, 100, 10, 20));
 	      BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(ModConfiguredSurfaceBuilders.HARDLAND);
 	      biomegenerationsettings$builder.withStructure(StructureFeatures.NETHER_FOSSIL);
-	      biomegenerationsettings$builder.withStructure(StructureFeatures.DESERT_PYRAMID);
+	      biomegenerationsettings$builder.withStructure(StructureFeatures.MANSION);
 	      
 	      return (new Biome.Builder()).precipitation(Biome.RainType.NONE).category(Biome.Category.DESERT).depth(depth).scale(scale).temperature(2.0F).downfall(0.0F).setEffects((new BiomeAmbience.Builder()).setWaterColor(4159204).setWaterFogColor(329011).setFogColor(12638463).withSkyColor(getSkyColorWithTemperatureModifier(2.0F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build()).withMobSpawnSettings(mobspawninfo$builder.build()).withGenerationSettings(biomegenerationsettings$builder.build()).build();
 	   }

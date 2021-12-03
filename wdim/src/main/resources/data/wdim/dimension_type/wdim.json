@@ -1,7 +1,7 @@
 {
   "name": "wdim:wdim",
-  "ultrawarm": false,
-  "natural": false,
+  "ultrawarm": true,
+  "natural": true,
   "coordinate_scale": 24,
   "has_skylight": true,
   "has_ceiling": false,
@@ -9,7 +9,7 @@
   "fixed_time": 18000,
   "piglin_safe": false,
   "bed_works": false,
-  "respawn_anchor_works": false,
+  "respawn_anchor_works": true,
   "has_raids": false,
   "logical_height": 256,
   "infiniburn": "minecraft:infiniburn_overworld",

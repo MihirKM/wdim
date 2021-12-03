@@ -14,7 +14,7 @@ public class ModConfiguredSurfaceBuilders {
 	
 	public static ConfiguredSurfaceBuilder<?> HARDLAND = register("hard_land",
 			SurfaceBuilder.DEFAULT.func_242929_a(new SurfaceBuilderConfig(
-					Blocks.COBWEB.getDefaultState(),
+					Blocks.MAGMA_BLOCK.getDefaultState(),
 					Blocks.OBSIDIAN.getDefaultState(),
 					Blocks.RED_SAND.getDefaultState()
 					)));
