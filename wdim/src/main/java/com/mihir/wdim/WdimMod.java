@@ -19,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.mihir.wdim.block.ModBlocks;
 import com.mihir.wdim.item.ModItems;
+import com.mihir.wdim.world.biome.ModBiomes;
 
 import java.util.stream.Collectors;
 
@@ -36,6 +37,8 @@ public class WdimMod
         
     	ModItems.register(eventBus);
     	ModBlocks.register(eventBus);
+    	
+    	ModBiomes.register(eventBus);
     	
     	// Register the setup method for modloading
         eventBus.addListener(this::setup);
