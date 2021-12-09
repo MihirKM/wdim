@@ -1,10 +1,10 @@
 {
 	"entity.wdim.mini_creeper": "Mini Creeper",
+	"itemGroup.wdimTab": "WalleBot Dimensions",
 	"item.wdim.space_dust": "Space Dust",
 	"item.wdim.mysterious_ingot": "Mysterious Ingot",
 	"item.wdim.mini_creeper_spawn_egg": "Mini Creeper Spawn Egg",
-	"itemGroup.wdimTab": "WalleBot Dimensions",
 	"block.wdim.mystery_block": "Block of Mysterious Substance",
 	"block.wdim.space_ore": "Space Ore",
-	"block.wdim.teleporter":	"Player Transmitter"
+	"block.wdim.teleporter": "Player Transmitter"
 }
