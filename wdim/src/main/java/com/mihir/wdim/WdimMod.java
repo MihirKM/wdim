@@ -7,6 +7,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -19,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.mihir.wdim.block.ModBlocks;
 import com.mihir.wdim.entity.ModEntityTypes;
+import com.mihir.wdim.entity.render.MiniCreeperRenderer;
 import com.mihir.wdim.item.ModItems;
 import com.mihir.wdim.world.biome.ModBiomes;
 
@@ -64,6 +66,7 @@ public class WdimMod
 	private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         //LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.MINI_CREEPER.get(), MiniCreeperRenderer::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

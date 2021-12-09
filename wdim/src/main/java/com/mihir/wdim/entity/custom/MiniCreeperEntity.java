@@ -31,10 +31,10 @@ public class MiniCreeperEntity extends CreeperEntity {
 		super(type, worldIn);
 	}
 
-	public static AttributeModifierMap.MutableAttribute registerAttributes() {
+	public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
 	      return MobEntity.func_233666_p_()
 	    		  .createMutableAttribute(Attributes.MAX_HEALTH, 16.0D)
-	    		  .createMutableAttribute(Attributes.MOVEMENT_SPEED, 2.5D)
+	    		  .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3D)
 	    		  .createMutableAttribute(Attributes.ATTACK_DAMAGE, 0.0D)
 	    		  .createMutableAttribute(Attributes.FOLLOW_RANGE, 50.0D);
 	   }
