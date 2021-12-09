@@ -19,22 +19,39 @@ import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.OcelotEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class MiniCreeperEntity extends CreeperEntity {
+	private static final DataParameter<Integer> STATE = EntityDataManager.createKey(CreeperEntity.class, DataSerializers.VARINT);
+	//private static final DataParameter<Boolean> POWERED = EntityDataManager.createKey(CreeperEntity.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean> IGNITED = EntityDataManager.createKey(CreeperEntity.class, DataSerializers.BOOLEAN);
+	private int timeSinceIgnited;
+	private int fuseTime = 40;
+	private int explosionRadius = 1;
+	private int lastActiveTime;
 
 	public MiniCreeperEntity(EntityType<? extends CreeperEntity> type, World worldIn) {
 		super(type, worldIn);
 	}
-
 	public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
 	      return MobEntity.func_233666_p_()
-	    		  .createMutableAttribute(Attributes.MAX_HEALTH, 16.0D)
-	    		  .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3D)
+	    		  .createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
+	    		  .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.75D)
 	    		  .createMutableAttribute(Attributes.ATTACK_DAMAGE, 0.0D)
 	    		  .createMutableAttribute(Attributes.FOLLOW_RANGE, 50.0D);
 	   }
@@ -79,4 +96,90 @@ public class MiniCreeperEntity extends CreeperEntity {
 		}
 		return true;	
 	}
+	// Tick
+	@Override
+	public void tick() {
+	      if (this.isAlive()) {
+	         if (this.hasIgnited()) {
+	            this.setCreeperState(1);
+	         }
+
+	         int i = this.getCreeperState();
+	         if (i > 0 && this.timeSinceIgnited == 0) {
+	            this.playSound(SoundEvents.ENTITY_CREEPER_PRIMED, 1.0F, 0.5F);
+	         }
+
+	         this.timeSinceIgnited += i;
+	         if (this.timeSinceIgnited < 0) {
+	            this.timeSinceIgnited = 0;
+	         }
+
+	         if (this.timeSinceIgnited >= this.fuseTime) {
+	            this.timeSinceIgnited = this.fuseTime;
+	            this.explode();
+	         }
+	      }
+	      super.tick();
+	}
+	// Flint and Steel
+	@Override
+	protected ActionResultType getEntityInteractionResult(PlayerEntity playerIn, Hand hand) {
+	      ItemStack itemstack = playerIn.getHeldItem(hand);
+	      if (itemstack.getItem() == Items.FLINT_AND_STEEL) {
+	         this.world.playSound(playerIn, this.getPosX(), this.getPosY(), this.getPosZ(), SoundEvents.ITEM_FLINTANDSTEEL_USE, this.getSoundCategory(), 1.0F, this.rand.nextFloat() * 0.4F + 0.8F);
+	         if (!this.world.isRemote) {
+	            this.ignite();
+	            itemstack.damageItem(1, playerIn, (player) -> {
+	               player.sendBreakAnimation(hand);
+	            });
+	         }
+
+	         return ActionResultType.func_233537_a_(this.world.isRemote);
+	      } else {
+	         return super.getEntityInteractionResult(playerIn, hand);
+	      }
+	   }
+	// Explosion
+	private void explode() {
+	      if (!this.world.isRemote) {
+	         Explosion.Mode explosion$mode = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this) ? Explosion.Mode.DESTROY : Explosion.Mode.NONE;
+	         float f = this.isCharged() ? 2.0F : 1.0F;
+	         this.dead = true;
+	         this.world.createExplosion(this, this.getPosX(), this.getPosY(), this.getPosZ(), (float)this.explosionRadius * f, explosion$mode);
+	         this.remove();
+	      }
+
+	   }
+	
+	@Override
+	public boolean hasIgnited() {
+		return this.dataManager.get(IGNITED);
+	}
+	@Override
+	public void ignite() {
+		this.dataManager.set(IGNITED, true);
+	}
+	// COPIED FROM MC CODE
+	/**
+	    * Params: (Float)Render tick. Returns the intensity of the creeper's flash when it is ignited.
+	    */
+	   @OnlyIn(Dist.CLIENT)
+	   public float getCreeperFlashIntensity(float partialTicks) {
+	      return MathHelper.lerp(partialTicks, (float)this.lastActiveTime, (float)this.timeSinceIgnited) / (float)(this.fuseTime - 2);
+	   }
+
+	   /**
+	    * Returns the current state of creeper, -1 is idle, 1 is 'in fuse'
+	    */
+	   public int getCreeperState() {
+	      return this.dataManager.get(STATE);
+	   }
+
+	   /**
+	    * Sets the state of creeper, -1 to idle and 1 to be 'in fuse'
+	    */
+	   public void setCreeperState(int state) {
+	      this.dataManager.set(STATE, state);
+	   }
+
 }
