@@ -36,6 +36,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+@SuppressWarnings("unused")
 public class MiniCreeperEntity extends CreeperEntity {
 	private static final DataParameter<Integer> STATE = EntityDataManager.createKey(CreeperEntity.class, DataSerializers.VARINT);
 	//private static final DataParameter<Boolean> POWERED = EntityDataManager.createKey(CreeperEntity.class, DataSerializers.BOOLEAN);
@@ -97,6 +98,8 @@ public class MiniCreeperEntity extends CreeperEntity {
 		return true;	
 	}
 	// Tick
+	// Crash workaround
+	/*
 	@Override
 	public void tick() {
 	      if (this.isAlive()) {
@@ -150,7 +153,7 @@ public class MiniCreeperEntity extends CreeperEntity {
 	      }
 
 	   }
-	
+	*/
 	@Override
 	public boolean hasIgnited() {
 		return this.dataManager.get(IGNITED);
