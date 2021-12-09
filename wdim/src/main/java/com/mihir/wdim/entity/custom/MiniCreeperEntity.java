@@ -64,12 +64,12 @@ public class MiniCreeperEntity extends CreeperEntity {
 	}
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return SoundEvents.ENTITY_GHAST_SCREAM;
+		return SoundEvents.BLOCK_GLASS_BREAK;
 	}
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
 	{
-		this.playSound(SoundEvents.BLOCK_ANVIL_PLACE, 1, 0.5F);
+		this.playSound(SoundEvents.BLOCK_GRASS_BREAK, 0.5F, 0.5F);
 	}
 	
 	@Override
