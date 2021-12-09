@@ -31,24 +31,24 @@ public class MiniCreeperModel <T extends MiniCreeperEntity> extends EntityModel<
 		head.setTextureOffset(0, 0).addBox(-3.0F, -16.0F, -3.0F, 6.0F, 6.0F, 6.0F, 0.0F, false);
 
 		leg1 = new ModelRenderer(this);
-		leg1.setRotationPoint(0.0F, 0.0F, 0.0F);
+		leg1.setRotationPoint(-2.0F, -3.0F, 3.0F);
 		body.addChild(leg1);
-		leg1.setTextureOffset(24, 0).addBox(-3.0F, -3.0F, 2.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
+		leg1.setTextureOffset(24, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
 
 		leg2 = new ModelRenderer(this);
-		leg2.setRotationPoint(0.0F, 0.0F, 0.0F);
+		leg2.setRotationPoint(2.0F, -3.0F, 3.0F);
 		body.addChild(leg2);
-		leg2.setTextureOffset(24, 0).addBox(1.0F, -3.0F, 2.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
+		leg2.setTextureOffset(24, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
 
 		leg3 = new ModelRenderer(this);
-		leg3.setRotationPoint(0.0F, 0.0F, 0.0F);
+		leg3.setRotationPoint(-2.0F, -3.0F, -2.0F);
 		body.addChild(leg3);
-		leg3.setTextureOffset(24, 0).addBox(-3.0F, -3.0F, -3.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
+		leg3.setTextureOffset(24, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
 
 		leg4 = new ModelRenderer(this);
-		leg4.setRotationPoint(0.0F, 0.0F, 0.0F);
+		leg4.setRotationPoint(2.0F, -3.0F, -2.0F);
 		body.addChild(leg4);
-		leg4.setTextureOffset(24, 0).addBox(1.0F, -3.0F, -3.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
+		leg4.setTextureOffset(24, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
 	}
 	public Iterable<ModelRenderer> getParts() {
 	      return ImmutableList.of(this.head, this.body, this.leg1, this.leg2, this.leg3, this.leg4);
