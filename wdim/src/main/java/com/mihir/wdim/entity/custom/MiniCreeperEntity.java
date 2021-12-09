@@ -55,19 +55,16 @@ public class MiniCreeperEntity extends CreeperEntity {
 	protected int getExperiencePoints(PlayerEntity player) {
 		return 3 + this.world.rand.nextInt(5);
 	}
-	/*
-	@Override
-	protected SoundEvent getAmbientSound() {
-		return SoundEvents.ENTITY_ENDERMAN_SCREAM;
-	}
-	*/
+	
+	// Placeholder sounds.
+	// TODO: Replace
 	@Override
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENTITY_ENDERMAN_SCREAM;
+		return SoundEvents.ENTITY_ENDERMAN_DEATH;
 	}
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return SoundEvents.ENTITY_ENDERMAN_SCREAM;
+		return SoundEvents.ENTITY_GHAST_SCREAM;
 	}
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
