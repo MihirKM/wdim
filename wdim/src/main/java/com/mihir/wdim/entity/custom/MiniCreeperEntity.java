@@ -38,9 +38,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @SuppressWarnings("unused")
 public class MiniCreeperEntity extends CreeperEntity {
-	private static final DataParameter<Integer> STATE = EntityDataManager.createKey(CreeperEntity.class, DataSerializers.VARINT);
-	//private static final DataParameter<Boolean> POWERED = EntityDataManager.createKey(CreeperEntity.class, DataSerializers.BOOLEAN);
-	private static final DataParameter<Boolean> IGNITED = EntityDataManager.createKey(CreeperEntity.class, DataSerializers.BOOLEAN);
 	private int timeSinceIgnited;
 	private int fuseTime = 40;
 	private int explosionRadius = 1;
@@ -52,7 +49,7 @@ public class MiniCreeperEntity extends CreeperEntity {
 	public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
 	      return MobEntity.func_233666_p_()
 	    		  .createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
-	    		  .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.75D)
+	    		  .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.4D)
 	    		  .createMutableAttribute(Attributes.ATTACK_DAMAGE, 0.0D)
 	    		  .createMutableAttribute(Attributes.FOLLOW_RANGE, 50.0D);
 	   }
@@ -153,7 +150,7 @@ public class MiniCreeperEntity extends CreeperEntity {
 	      }
 
 	   }
-	*/
+	
 	@Override
 	public boolean hasIgnited() {
 		return this.dataManager.get(IGNITED);
@@ -163,26 +160,14 @@ public class MiniCreeperEntity extends CreeperEntity {
 		this.dataManager.set(IGNITED, true);
 	}
 	// COPIED FROM MC CODE
-	/**
-	    * Params: (Float)Render tick. Returns the intensity of the creeper's flash when it is ignited.
-	    */
 	   @OnlyIn(Dist.CLIENT)
 	   public float getCreeperFlashIntensity(float partialTicks) {
 	      return MathHelper.lerp(partialTicks, (float)this.lastActiveTime, (float)this.timeSinceIgnited) / (float)(this.fuseTime - 2);
 	   }
-
-	   /**
-	    * Returns the current state of creeper, -1 is idle, 1 is 'in fuse'
-	    */
-	   public int getCreeperState() {
 	      return this.dataManager.get(STATE);
 	   }
-
-	   /**
-	    * Sets the state of creeper, -1 to idle and 1 to be 'in fuse'
-	    */
 	   public void setCreeperState(int state) {
 	      this.dataManager.set(STATE, state);
 	   }
-
+	   */
 }
