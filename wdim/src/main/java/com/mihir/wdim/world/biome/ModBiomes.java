@@ -2,8 +2,6 @@ package com.mihir.wdim.world.biome;
 
 import com.mihir.wdim.WdimMod;
 
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
@@ -32,8 +30,10 @@ public class ModBiomes {
 	// Also copied
 	public static Biome makeHardLandBiome(float depth, float scale) {
 	      MobSpawnInfo.Builder mobspawninfo$builder = new MobSpawnInfo.Builder();
+	      /*
 	      mobspawninfo$builder.withSpawner(EntityClassification.MONSTER,
-	    		  new MobSpawnInfo.Spawners(EntityType.EVOKER, 100, 10, 20));
+	    		  new MobSpawnInfo.Spawners(EntityType.EVOKER, 100, 100, 200));
+	      */
 	      BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(ModConfiguredSurfaceBuilders.HARDLAND);
 	      biomegenerationsettings$builder.withStructure(StructureFeatures.NETHER_FOSSIL);
 	      biomegenerationsettings$builder.withStructure(StructureFeatures.MANSION);
