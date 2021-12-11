@@ -75,7 +75,7 @@ public class MiniCreeperEntity extends CreeperEntity {
 	@Override
 	protected void playStepSound(BlockPos pos, BlockState blockIn)
 	{
-		this.playSound(SoundEvents.BLOCK_GRASS_BREAK, 0.5F, 0.5F);
+		this.playSound(SoundEvents.BLOCK_GRAVEL_BREAK, 0.5F, 0.5F);
 	}
 	
 	@Override
