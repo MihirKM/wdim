@@ -17,10 +17,6 @@ public class SimpleTeleporter implements ITeleporter {
 	public static BlockPos thisPos = BlockPos.ZERO;
     public static boolean insideDimension = true;
 
-    // Scaling of the dimension.
-    // TODO: Don't hard-code it
-    private int worldScale = 24;
-    
     public SimpleTeleporter(BlockPos pos, boolean insideDim) {
         thisPos = pos;
         insideDimension = insideDim;
@@ -31,17 +27,11 @@ public class SimpleTeleporter implements ITeleporter {
         entity = repositionEntity.apply(false);
         double y = 61;
 
-        BlockPos destinationPos;
-        
-        // Account for scaling.
         if (!insideDimension) {
             y = thisPos.getY();
-            destinationPos = new BlockPos(thisPos.getX() * worldScale, y, thisPos.getZ() * worldScale);
         }
-        else {
-        	destinationPos = new BlockPos(thisPos.getX() / worldScale, y, thisPos.getZ() / worldScale);
-        }
-        
+
+        BlockPos destinationPos = new BlockPos(thisPos.getX(), y, thisPos.getZ());
 
         int tries = 0;
         while ((destinationWorld.getBlockState(destinationPos).getMaterial() != Material.AIR) &&
