@@ -19,29 +19,20 @@ import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.OcelotEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-@SuppressWarnings("unused")
 public class MiniCreeperEntity extends CreeperEntity {
+	/*
 	private int timeSinceIgnited;
 	private int fuseTime = 40;
 	private int explosionRadius = 1;
 	private int lastActiveTime;
+	*/
+
 
 	public MiniCreeperEntity(EntityType<? extends CreeperEntity> type, World worldIn) {
 		super(type, worldIn);
