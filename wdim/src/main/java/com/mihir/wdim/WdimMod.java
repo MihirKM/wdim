@@ -21,7 +21,6 @@ import org.apache.logging.log4j.Logger;
 import com.mihir.wdim.block.ModBlocks;
 import com.mihir.wdim.entity.ModEntityTypes;
 import com.mihir.wdim.entity.render.MiniCreeperRenderer;
-import com.mihir.wdim.entity.render.StrangeWitherRenderer;
 import com.mihir.wdim.item.ModItems;
 import com.mihir.wdim.world.biome.ModBiomes;
 
@@ -68,7 +67,6 @@ public class WdimMod
         // do something that can only be done on the client
         //LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.MINI_CREEPER.get(), MiniCreeperRenderer::new);
-		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.STRANGE_WITHER.get(), StrangeWitherRenderer::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
