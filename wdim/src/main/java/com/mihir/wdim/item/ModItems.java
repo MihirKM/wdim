@@ -22,9 +22,6 @@ public class ModItems {
 	public static final RegistryObject<Item> MINI_CREEPER_SPAWN_EGG = ITEMS.register("mini_creeper_spawn_egg",
 			() -> new ModSpawnEggItem(ModEntityTypes.MINI_CREEPER, 0xFFFFFF, 0x00FF00,
 					new Item.Properties().maxStackSize(64).group(ModItemsGroup.WDIM_GROUP)));
-	public static final RegistryObject<Item> STRANGE_WITHER_SPWAN_EGG = ITEMS.register("strange_wither_spawn_egg",
-			() -> new ModSpawnEggItem(ModEntityTypes.STRANGE_WITHER, 0x00000, 0x000000,
-					new Item.Properties().maxStackSize(64).group(ModItemsGroup.WDIM_GROUP)));
 	
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
