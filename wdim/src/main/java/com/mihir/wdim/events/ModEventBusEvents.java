@@ -15,6 +15,7 @@ public class ModEventBusEvents {
 	@SubscribeEvent
 	public static void addEntityAttributes(EntityAttributeCreationEvent event) {
 		event.put(ModEntityTypes.MINI_CREEPER.get(), MiniCreeperEntity.setCustomAttributes().create());
+		event.put(ModEntityTypes.STRANGE_WITHER.get(), MiniCreeperEntity.setCustomAttributes().create());
 	}
 	
 	@SubscribeEvent
